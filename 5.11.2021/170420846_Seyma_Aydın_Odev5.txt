@@ -1,0 +1,105 @@
+"""""
+import random
+
+############## SORU 1 ###############
+## Bir liste için 
+## Toplam, çarpım, en büyük eleman, en küçük eleman, ortalama, 
+## eleman arama, sıralama
+## işlevlerini içeren bir program yazınız.
+
+
+liste = []
+for i in range(10):
+    a = random.randint(0, 100)
+    liste.append(a)
+
+print(liste)
+aList = liste
+
+
+def carpma(aList):
+    sonuc = 1
+    for i in aList:
+        sonuc = sonuc * i
+    return sonuc
+
+
+def sayiBul(aList):
+    sayi = int(input("Aranacak sayiyi girin: "))
+    if sayi in aList:
+        print("Aranan sayi mevcut")
+    else:
+        print("Sayi mevcut değil")
+
+
+def ortalamaBul(aList):
+    toplam = sum(aList)
+    ortalama = toplam / len(aList)
+    print("Listedeki elemanların ortalaması: ", ortalama)
+
+
+def enBuyukBul(aList):
+    for x in aList:
+        bironceki = x
+        if x > bironceki:
+            buyukeleman = x
+        else:
+            buyukeleman = bironceki
+
+
+def enKucukBul(aList):
+    bironceki = 100
+    for x in aList:
+        if x < bironceki:
+            kucukeleman = x
+            bironceki = x
+        else:
+            kucukeleman = bironceki
+    print("Listedeki en küçük eleman: ", kucukeleman)
+
+
+print("Listenin toplamı : ", sum(aList))
+print("Listedeki elemanların çarpımı: ", carpma(aList))
+print(ortalamaBul(aList))
+print(enBuyukBul(aList))
+print(enKucukBul(aList))
+print(sayiBul(aList))
+print("Listeden çıkarılan 2. eleman: ", liste.pop(1))
+print("Listenin son hali : ", liste)
+print(elemanlariSıralama(aList))
+
+############## SORU 2 ###############
+## Bir string içerisinde istenilen 
+## karakterin olup olmadığını kontrol eden 
+## programını yazınız.
+
+
+string = input("Bir string olusturun: ")
+print(string)
+karakter = input("Aranacak karakteri girin: ")
+if karakter in string:
+    print("Karakter bulunmaktadir.")
+else:
+    print("Karakter bulunmamaktadir.")
+
+############## SORU 3 ###############
+## Girilen bir formüldeki parantez hatalarını bulan 
+## programı yazınız.
+## Örnek; Formül: ( (2+3) * (4/2) ) )
+## Sonuç: 1 adet fazladan “)” var.
+
+
+formul = input("Formul girin: ")
+a= formul.count("(")
+b= formul.count(")")
+
+if a == b:
+    print("Formul dogrudur.")
+elif a>b:
+    sonuc = a-b
+    print(sonuc, " tane fazla ( vardır.")
+elif a<b:
+    sonuc1= b-a
+    print(sonuc1," tane fazla ) vardır.")
+
+"""

@@ -1,0 +1,9 @@
+##170420846 Şeyma AYDIN SORU 3
+
+print("Soru: 1-2+3-4+...+199-200 seriyi bulan program \n")
+ilk=1
+son=200
+for seri in range(ilk, son+1):
+    print(seri if seri %2==1 else -seri, end=" ")
+cevap= int(son*(son+1)/2)
+print("\nCevap: ", cevap)

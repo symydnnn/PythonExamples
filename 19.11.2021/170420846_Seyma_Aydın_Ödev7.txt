@@ -1,0 +1,51 @@
+### ODEV 7
+### 170420846 Şeyma AYDIN
+
+
+import json
+
+def listeyeDonustur(cumle):
+    try:
+        liste = cumle.rsplit()
+        for i in range(0, len(liste)):
+            liste[i] = liste[i].capitalize()
+    except:
+        print("Gecersiz")
+    return liste
+
+def dosyayaEkle(liste):
+    try:
+        dosya = open('veri.json', 'w')
+        for i in range(0, len(liste)):
+            dosya.write(liste[i])
+            dosya.write(" ")
+        dosya.close()
+        return liste
+    except:
+        print("Dosya acilamadi.")
+
+def dosyayiOku():
+    try:
+        dosya = open('veri.json', 'r')
+        kelimeler = dosya.read()
+        print(kelimeler)
+        yeniListe = kelimeler.rsplit()
+        dosya.close()
+
+        for i in range(0, len(yeniListe)):
+            yeniListe[i] = yeniListe[i].upper()
+
+        print(yeniListe)
+        metin = ""
+        for i in range(0, len(yeniListe)):
+            metin = metin + yeniListe[i] + " "
+        print(metin)
+        return dosya
+    except IOError:
+        print("Dosya bulunamadi")
+
+cumle = input("Cumle giriniz: ");
+liste = listeyeDonustur(cumle)
+print(liste)
+dosyayaEkle(liste)
+dosyayiOku()

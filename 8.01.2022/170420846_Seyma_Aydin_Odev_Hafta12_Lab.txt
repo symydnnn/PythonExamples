@@ -1,0 +1,38 @@
+import re
+
+siparis = 'C://Users//seyma//OneDrive//Masaüstü//siparis.txt'
+kayit = 'C://Users//seyma//OneDrive//Masaüstü//kayit.txt'
+f = open(siparis,'r')
+txt = ""
+
+pattern = re.compile("musteri-id")
+
+for line in open(siparis):
+    txt = txt+ line
+
+k = re.sub("musteri-id ","",txt)
+k = re.split("\n",k)
+
+kelime = []
+
+say = len(k)
+for i in range(len(k)):
+    if k[i].isidentifier():
+        kelime.append([k[i-1],k[i]])
+
+##kelime.append(k[say-1])
+
+f.close()
+dosya = open(kayit, "w")
+
+for i in kelime:
+    for a in i:
+        dosya.writelines(str(a)+",")
+    dosya.writelines("\n")
+dosya.close()
+
+
+
+
+
+

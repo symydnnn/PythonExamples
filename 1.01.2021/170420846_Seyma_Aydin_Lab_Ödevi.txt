@@ -1,0 +1,44 @@
+import re
+import random
+import tkinter as tk
+
+pencere = tk.Tk()
+pencere.title('Zam Hesaplayicisi')
+pencere.geometry('350x200')
+
+list = []
+
+def isimOlusturucu():
+    isim = ["Ali", "Seyma","Mehmet","Berkay","Büsra","Zeynep", "Mert", "Ayse", "Murat", "Asiye", "Nazlı", "Mukadder", "İbrahim", "Elif", "Emre"]
+    soyisim = ["Aydin", "Gören", "Koç", "Tufan", "Kaya", "Temir", "Ziya","Korkut"]
+    return "{} {}".format(random.choice(isim), random.choice(soyisim))
+
+
+def rastgele():
+    for i in range(15):
+        randomDegerler = random.randint(1, 10)
+        list.append(randomDegerler)
+        list.append(isimOlusturucu())
+
+rastgele()
+
+def olustur():
+    hand = open("aa.txt","w")
+    hand.write(str(list))
+    hand.close()
+
+    hand = open("aa.txt","r")
+    print(hand.readline())
+
+    b = re.findall('[0-9]+', open("aa.txt","r").read())
+    print(b)
+
+
+
+button = tk.Button(pencere, text='Dosyayi cagir', command=olustur)
+button.place(x=150, y=20)
+yaz = tk.Entry(pencere, width=25, text = list, justify='center')
+yaz.place(x=110, y=80)
+
+
+pencere.mainloop()

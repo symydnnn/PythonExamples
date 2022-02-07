@@ -1,0 +1,46 @@
+import tkinter as tk
+import random
+
+
+def sayiUret():
+    global sayi2
+    sayi2 = random.randint(1, 10)
+    return sayi2
+
+
+def Kontrol():
+    global sayac
+    if sayi1.get().isdigit():
+        s1 = int(sayi1.get())
+        s2 = sayi2
+
+        sayac = sayac + 1
+        if s1 > s2:
+            yazi2.configure(text='Daha az')
+        elif s1 < s2:
+            yazi2.configure(text='Daha fazla')
+        else:
+            yazi2.configure(text='{} defa da tahmin ettiniz'.format(sayac))
+    sayi1.selection_range(0, tk.END)
+
+
+pencere = tk.Tk()
+pencere.title('Sayi Tahmin Oyunu')
+pencere.geometry('320x200')
+
+sayi_uret = tk.Button(pencere, text='Rastgele Sayi Uret', command=sayiUret)
+sayi_uret.place(x=50, y=3)
+
+yazi1 = tk.Label(pencere, text='1-10 arasında sayı giriniz', width=25, justify='center')
+yazi1.place(x=30, y=30)
+
+sayi1 = tk.Entry(pencere, width=15, justify='center')
+sayi1.place(x=50, y=50)
+sayi1.focus()
+
+kontrol = tk.Button(pencere, text='Tahmin Dogru mu?', command=Kontrol)
+kontrol.place(x=50, y=80)
+yazi2 = tk.Label(pencere, text='', width=25, justify='center')
+yazi2.place(x=0, y=120)
+sayac = 0
+pencere.mainloop()

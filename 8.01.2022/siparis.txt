@@ -1,0 +1,18 @@
+musteri-id 1289
+T83456
+musteri-id 1289 
+musteri-id 1205
+T10032
+B77301
+musteri-id 1205
+musteri-id 1410
+K34001
+T98987
+musteri-id 1410
+musteri-id 1205
+T10786
+C77502
+musteri-id 1205
+musteri-id 1289
+Z22334
+musteri-id 1289

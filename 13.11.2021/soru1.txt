@@ -1,0 +1,25 @@
+notlar = {"Seyma Aydin": "A+", "Zeynep Aydin":"A+", "Elif Temir":"B","Cagla Cinar":"C"}
+harfler ={"A+","A","A-","B+","B","B-","C+","C-","D+","D","D-","F"}
+
+def notGirisi(girdi):
+    print("\nNOT GIRISI EKRANI\n")
+    while girdi != "?":
+        girdi= input("Ogrenci ad soyadini girin: ")
+        if girdi != "?":
+            notu = input("Basari not girin: ")
+            if notu in harfler:
+                notlar[girdi] = notu
+            else:
+                print("\nDogru olmayan not girisi yapildigi icin ogrenci kaydedilemedi.\n")
+        else:
+            print("\nSistemden cikildi.")
+
+def notBulma():
+    bul = input("Aranacak notu girin: ")
+    if bul in harfler:
+        for key, value in notlar.items():
+            if bul == value:
+                print("{} : {}".format(key,bul))
+
+notGirisi("")
+notBulma()

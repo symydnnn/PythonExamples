@@ -1,0 +1,9 @@
+## 170420846 Şeyma AYDIN SORU 1
+
+satir = int(input("genislik degeri girin: "))
+sutun = int(input("yukseklik degeri girin: "))
+
+for yukseklik in range(sutun):
+    for genislik in range(satir):
+        print("*" if yukseklik in [0,sutun-1] or genislik in [0,satir-1] else " ", end=" ")
+    print()

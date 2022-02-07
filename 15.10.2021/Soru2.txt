@@ -1,0 +1,13 @@
+##170420846 Şeyma AYDIN SORU 2
+
+derece = int(input("Sıcaklik degerini giriniz: "))
+birim =input("Sıcaklik degerinin birimi; Celcius için C, Fahreneit için F seçimini yapınız: ")
+
+if birim =="F":
+    donusum= (derece*9/5)+32
+    print("{} Celcius ={} Fahreneit'e eşittir.".format(derece, donusum))
+elif birim=="C":
+    donusum= (derece*5/9)-32
+    print("{} Fahrenheit ={} Celcius'a eşittir.".format(derece, donusum))
+else:
+    print("Yanlis birim girdiniz.")

@@ -1,0 +1,14 @@
+
+## 170420846 Seyma Aydın SORU 2
+   
+alt = int(input("Alt aralık: "))  
+ust = int(input("Üst aralık: "))  
+  
+for sayi in range(alt,ust+1):  
+   if sayi > 0:  
+       for i in range(2,sayi):  
+           if (sayi % i) == 0: 
+               print(sayi," = ",i,"*",int(sayi/i))
+               break
+       else:  
+           print(sayi," Asal sayidir")
